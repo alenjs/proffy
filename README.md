@@ -1,4 +1,5 @@
 # App Proffy
 Plataforma de estudos online
 Semana de Programação Rocketseat 
-New Level Week 2ª edição
+Next Level Week 2ª edição
+Agosto 2020
