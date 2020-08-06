@@ -20,10 +20,14 @@
     --color-box-footer: #FAFAFC;
     --color-small-info: #C1BCCC;
 
+    
     /* A fonte redimensionada de acordo a tela, começando por 
-    dispositivos menores e responsivo nas telas maiores.
-    tamanho da fonte padrão: 16px - 100% - 1rem*/
-    font-size: 60%; /* controle das medidas rem */
+    dispositivos menores (Mobile first) e responsivo nas telas maiores.
+    tamanho da fonte padrão: 16px equivale a 100% que equivale a 1rem */
+    
+    /* controle das medidas rem */
+    font-size: 60%; 
+
 }
 
 *{
@@ -59,5 +63,13 @@ textarea{
     width: 90vw; /*viewport width = em 100 blocos de largura use 90 blocos*/
     max-width: 700px; /*se passar de 700 não aumente a largura do conteiner*/
     
+}
+
+/*até 700px de largura faça isso*/
+/*para ajustar o tamanho da fonte em dispositivos maiores*/
+@media (min-width: 700px ){
+    :root{
+        font-size: 62.5%; /*todo o 1rem vai ser relativo a 10px*/
+    }
 }
 

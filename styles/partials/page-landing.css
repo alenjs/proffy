@@ -1,5 +1,25 @@
 :root{
-    font-size: 40%; /*modificar as medidas rem*/
+    --color-background: #F0F0F7;
+    --color-primary-lighter: #9871F5;
+    --color-primary-light: #916BEA;
+    --color-primary: #8257E5;
+    --color-primary-dark: #774DD6;
+    --color-primary-darker: #6842c2;
+    --color-secondary: #04D361;
+    --color-secondary-dark: #04BF58;
+    --color-title-in-primary: #FFFFFF;
+    --color-text-in-primary: #D4C2FF;
+    --color-text-title: #32264D;
+    --color-text-complement: #9C98A6;
+    --color-text-base: #6A6180;
+    --color-line-in-white: #E6E6F0;
+    --color-input-background: #F8F8FC;
+    --color-button-text: #FFFFFF;
+    --color-box-base: #FFFFFF;
+    --color-box-footer: #FAFAFC;
+    --color-small-info: #C1BCCC;
+
+    /* font-size: 40%; modificar as medidas rem */
 }
 #page-landing{
 background: var(--color-primary);
@@ -20,10 +40,132 @@ background: var(--color-primary);
     font-size: 3.6rem;
     line-height: 4.6rem;
     margin-top: 0.8rem;
-
 }
 
 .hero-image{
     width: 100%;
+
+}
+
+.buttons-container{
+    display: flex;
+    justify-content: center;
+    margin: 3.2 0;
+}
+
+.buttons-container a {
+    width: 30rem;
+    height: 10.4rem;
+    border-radius: 0.8rem;
+   margin-right: 1.6rem;
+   font: 700 2.4rem Archivo;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   text-decoration: none;
+   color: var(--color-button-text);
+}
+
+.buttons-container a img {
+    width: 4rem;
+    margin: 2.4rem;
+
+}
+
+.buttons-container a.study{
+    background: var(--color-primary-lighter);
+
+}
+
+.buttons-container a.study:hover{
+    background: var(--color-primary-light);
+    transition: background 0.2s ;
+}
+
+.buttons-container a.give-classes{
+    background: var(--color-secondary);
+    margin-right: 0;
+}
+
+.buttons-container a.give-classes:hover{
+    background: var(--color-secondary-dark);
+    transition: background 0.2s;
+}
+
+.total-connections {
+    font-size: 1.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.total-connections {
+    margin-left: 0.8rem;
+    margin-top: 2.0rem; /*ajuste*/
+}
+
+.total-connections img{
+    margin-left: 0.8rem; /*ajuste heart*/
+}
+
+/*até menor de 699px faça isso*/
+@media (max-width: 699px ){
+    :root{
+       font-size: 40%; 
+    }
+}
+
+/*media query: até 1100px faça isso, sobrescreve o estilo padrão dos elementos */
+@media (min-width: 1100px) {
+    
+    #page-landing #container{
+        max-width: 1100px;
+        display: grid;
+        /*divide a tela em um gradiente de 3 colunas x 2 linhas */
+        /*para visualizar o grid vá no inspetor do navegador e passe o mouse
+        sobre o elemento*/
+        grid-template-columns: 2fr 1fr 2fr; /* fr: divide a tela em fraçoes */
+        grid-template-rows: 350px 1fr; /*linhas*/
+        
+        /*define um nome para as áreas das 3 colunas e 2 linhas */
+        grid-template-areas: 
+        "proffy  image   image"  
+        "button  button  texting";
+       column-gap: 87px;
+       row-gap: 86px;
+
+    }
+
+    /* define em qual área os elementos vão estar */
+    .logo-container {
+        grid-area: proffy;
+        text-align: initial;
+        align-self: center; /*centraliza dentro do grid (self) a logo 'proffy'*/
+        margin: 0;
+    } 
+
+    .logo-container img {
+        height: 127px;
+    }
+
+    .hero-image {
+        grid-area: image;
+        height: 350px;
+    }
+
+    .buttons-container{
+        grid-area: button;
+        justify-content: flex-start; /*coloca no ínicio do conteúdo flex*/
+    }
+
+    .total-connections{
+        grid-area: texting;
+        justify-self:end ; /*dentro do grid*/
+        font-size: 1.2rem;
+    }
+
+   
+
+
 
 }
