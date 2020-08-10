@@ -1,0 +1,271 @@
+#page-study #container {
+    width: 100vw;
+    height:100vh;
+}
+.page-header{
+    background-color: var(--color-primary);
+    display: flex;
+    flex-direction: column;
+}
+
+.page-header .top-bar-container{
+    width: 90%;
+
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.6rem 0;
+}
+
+.page-header .top-bar-container a{
+    height: 3.2rem;
+    transition: opacity 0.2;
+    /* ver transição se esta aplicando */
+}
+
+.page-header .top-bar-container a:hover{
+    opacity: 0.6;
+}
+
+.page-header .top-bar-container img {
+    height: 1.6rem;
+}
+
+.page-header .header-content{
+    width: 90%;
+    margin: 3.2rem auto;
+    position: relative; /*permite os elementos filhos se posicionarem nele*/
+}
+
+.page-header .header-content strong{
+    font: 700 3.6rem Archivo;
+    line-height: 4.2rem;
+    color: var(--color-title-in-primary);
+}
+
+#search-teachers{
+    margin-top: 3.2rem;
+}
+
+#search-teachers label{
+    color: var(--color-text-in-primary);
+
+}
+
+#search-teachers .select-block{
+    margin-bottom: 1.4rem;
+}
+
+#search-teachers button{
+    width: 100%;
+    height: 5.6rem;
+    background: var(--color-secondary);
+    color: var(--color-button-text);
+    border: 0;
+    border-radius: 0.8rem;
+    cursor: pointer;
+    font: 700 1.6rem Archivo;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+
+    transition: background 0.2s;
+    margin-top: 3.2rem;
+}
+
+#search-teachers button:hover{
+    background-color: var(--color-secondary-dark);
+}
+
+.select-block label, .input-block label {
+    font-size: 1.4rem;
+    color: var(--color-text-complement);
+}
+.input-block input, .select-block select{
+    width: 100%;
+    height: 5.6rem;
+    margin-top: 0.8rem;
+    border-radius: 0.8rem;
+    background: var(--color-input-background);
+    border: 1px solid var(--color-line-in-white);
+    outline: 0;
+    padding: 0 1.6rem;
+    font: 1.6rem Archivo;
+}
+
+.input-block{
+    position: relative;
+}
+
+.input-block:focus-within::after{
+    /*cria uma linha de destaque abaixo do input 'hora' ao clicar*/
+    content:"";
+    width: calc(100% - 3.2rem); /*diminui o comprimento da linha de destaque*/
+    height: 2px;
+    background: var(--color-primary-light);
+    position: absolute; /* fixa a linha abaixo do input block*/
+    left: 1.6rem;
+    bottom: 0;
+}
+#page-study main{
+    margin: 3.2rem auto;
+    width: 90%;
+}
+
+.teacher-item {
+    background-color: var(--color-box-base);
+    border: 1px solid var(--color-line-in-white);
+    border-radius: 0.8rem;
+    margin-top: 2.4rem;
+
+}
+
+.teacher-item header{
+    /*display imagem,nome e disciplina ao lado do outro*/
+    padding: 3.2rem 2rem;
+    display: flex;
+    align-items: center;
+}
+
+.teacher-item img {
+    width: 8rem; /*faz um quadrado perfeito pequeno*/
+    height: 8rem;
+    border-radius: 50%; /*arredonda a imagem em 50%, ou seja, deixa uma bolinha*/
+}
+
+.teacher-item header div{
+    margin-left: 2.4rem;
+}
+
+.teacher-item header div strong {
+    font: 700 2.4rem Archivo;
+    display: block; /*sobrescreve o flex e coloca nome e disciplina um abaixo do outro*/
+    color: var(--color-text-title);
+}
+
+.teacher-item header div span { /*química*/
+    font-size: 1.6rem;
+    display: block;
+    margin-top: 0.4rem; /*aceita a margem com display block*/
+
+}
+
+.teacher-item > p { /*simbolo '>' pega só o primeiro nível de p*/
+    padding: 0 2rem; /*espaçamento da lateral*/
+    font-size: 1.6rem;
+    line-height: 2.8rem;
+}
+
+.teacher-item footer{
+    padding:3.2rem 2rem;
+    background-color: var(--color-box-footer);
+    border-top: 1px solid var(--color-line-in-white);
+    margin-top: 3.2rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.teacher-item footer p{
+    font-size: 1.4rem;
+    line-height: 2.4rem;
+    color: var(--color-text-complement);
+}
+
+.teacher-item footer p strong{
+    font-size: 1.6rem;
+    color: var(--color-primary);
+    display: block; /*força 'p' e strong abaixo do outro em disp moveis*/
+}
+
+.teacher-item footer button{
+    width: 20rem;
+    height: 5.6rem;
+    background: var(--color-secondary);
+    color: var(--color-button-text);
+    border: 0;
+    border-radius: 0.8rem;
+    cursor: pointer;
+    font: 700 1.4rem Archivo;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    text-decoration: none;
+
+    transition:  background 0.2s;
+    margin-left: 1.6rem;
+}
+
+.teacher-item footer button:hover{
+    background: var(--color-secondary-dark);
+}
+
+.teacher-item footer button img{
+    width: 2.5rem; /*ajuste icone*/
+}
+
+@media (min-width: 700px ){
+    #page-study #container{
+        max-width: 100vw;
+    }
+
+    .page-header{
+        height: 340px;
+    }
+
+    .page-header .top-bar-container{
+        max-width: 1100px;
+    }
+
+    .page-header .header-content{
+        max-width: 740px; /*diminiu largura do cabeçalho mat/dias/hora em relação aos demais*/
+        margin: 0 auto ; /*ajuste conf '0 0 auto' da aula conteúdo ficava descentralizado */
+        flex: 1 1;
+        padding-bottom:48px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .page-header .header-content strong {
+        max-width: 350px; /*quebra a linha do título*/
+
+    }
+
+    .teacher-item footer {
+        padding: 32px;
+    }
+
+    #search-teachers{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr); /*repete 4x o numero de frações do grid*/
+        gap: 16px;
+        position: absolute; /*posição fixa em relação ao elemento pai*/
+        bottom: -28px; 
+    }
+
+    #page-study main {
+        padding:32px 0;
+        max-width: 740px;
+        margin: 0 auto;
+    }
+    #search-teachers .select-block{
+        margin-bottom: 0;
+    }
+
+    .teacher-item > p { /*o simbolo '>' pega só o primeiro nível do elemento*/
+        padding: 0 32px;
+    }
+
+    .teacher-item footer p strong{
+        display: initial;
+        margin-left: 16px;
+    }
+}
+
