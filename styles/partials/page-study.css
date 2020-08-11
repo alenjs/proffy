@@ -2,48 +2,6 @@
     width: 100vw;
     height:100vh;
 }
-.page-header{
-    background-color: var(--color-primary);
-    display: flex;
-    flex-direction: column;
-}
-
-.page-header .top-bar-container{
-    width: 90%;
-
-    margin: 0 auto;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1.6rem 0;
-}
-
-.page-header .top-bar-container a{
-    height: 3.2rem;
-    transition: opacity 0.2;
-    /* ver transição se esta aplicando */
-}
-
-.page-header .top-bar-container a:hover{
-    opacity: 0.6;
-}
-
-.page-header .top-bar-container img {
-    height: 1.6rem;
-}
-
-.page-header .header-content{
-    width: 90%;
-    margin: 3.2rem auto;
-    position: relative; /*permite os elementos filhos se posicionarem nele*/
-}
-
-.page-header .header-content strong{
-    font: 700 3.6rem Archivo;
-    line-height: 4.2rem;
-    color: var(--color-title-in-primary);
-}
 
 #search-teachers{
     margin-top: 3.2rem;
@@ -238,7 +196,7 @@
 
     }
 
-    .teacher-item footer {
+    .teacher-item footer, .teacher-item footer {
         padding: 32px;
     }
 
