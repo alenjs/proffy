@@ -5,15 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proffy | Sua plataforma de estudos online</title>
-
+    
+    <link rel="shortcut icon" href="images/favicon.png" type="image/ico">
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/partials/header.css">
     <link rel="stylesheet" href="styles/partials/page-give-classes.css">
     <link rel="stylesheet" href="styles/partials/forms.css">
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700&amp;family=Poppins:wght@400;600&amp;display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700&amp;family=Poppins:wght@400;600&amp;display=swap"
         rel="stylesheet">
+
+    <script src="/scripts/addField.js" defer > </script>    
 
 </head>
 
@@ -93,7 +95,7 @@
 
                     <!-- button dentro da tag legend, para alinhar com a legenda
                      -->
-                    <legend>Horários disponíveis <button id="add-time">+ Novo Horário</button> </legend>
+                    <legend>Horários disponíveis <button type="button" id="add-time">+ Novo Horário</button> </legend>
 
                     <div class="schedule-item">
                         
@@ -123,37 +125,7 @@
                             <input name="time_to[]" type="time" required>
                         </div>
                     </div>
-
-                    <div class="schedule-item">
-                        
-                        <div class="select-block">
-                            <label for="weekday">Dia da Semana</label>
-                            <!-- weekday[] : os colchetes indicam que o campo pode ser adicionado mais vezes na página -->
-                        <!-- não definir 'id' para os elementos abaixo, pois o JS pode adicionar outro campo na mesma página. isso evita dois campos com mesmo id -->
-                            <select name="weekday[]" required>
-                                <option value="">Selecione o dia</option>
-                                <option value="0">Domingo</option>
-                                <option value="1">Segunda-feira</option>
-                                <option value="2">Terça-feira</option>
-                                <option value="3">Quarta-feira</option>
-                                <option value="4">Quinta-feira</option>
-                                <option value="5">Sexta-feira</option>
-                                <option value="6">Sábado</option>
-                            </select>
-                        </div>
-
-                        <div class="input-block">
-                            <label for="time_from">Das</label>
-                            <input name="time_from[]" type="time" required>
-                        </div>
-
-                        <div class="input-block">
-                            <label for="time_to">Até</label>
-                            <input name="time_to[]" type="time" required>
-                        </div>
-                    </div>
-
-
+                  
                 </fieldset>
                 <!-- botão de envio do formulário está referenciado em um botão no footer,
                 por conta do estilo da página não ficou aqui por padrão -->
@@ -169,7 +141,7 @@
 
         </main>
 
-    </div>
+    </div>    
 
 </body>
 
