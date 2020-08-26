@@ -109,7 +109,7 @@
     display: block; /*força 'p' e strong abaixo do outro em disp moveis*/
 }
 
-.teacher-item footer button{
+.teacher-item footer .button{
     width: 20rem;
     height: 5.6rem;
     background: var(--color-secondary);
@@ -129,11 +129,11 @@
     margin-left: 1.6rem;
 }
 
-.teacher-item footer button:hover{
+.teacher-item footer .button:hover{
     background: var(--color-secondary-dark);
 }
 
-.teacher-item footer button img{
+.teacher-item footer .button img{
     width: 2.5rem; /*ajuste icone*/
 }
 
