@@ -1,4 +1,4 @@
-
+//dados
 const proffys = [
     { 
         name:"Diego Fernandes", 
@@ -36,10 +36,10 @@ const proffys = [
 ]
 
 const subjects = [
-    "Artes",
-    "Biologia",
-    "Ciências",
-    "Educação física",
+    "Artes", // 0
+    "Biologia", // 1
+    "Ciências", // 2
+    "Educação física", // 3
     "Física",
     "Geografia",
     "História",
@@ -48,6 +48,25 @@ const subjects = [
     "Química",
 ]
 
+const weekdays = [
+    "Domingo",
+    "Segunda-feira",
+    "Terça-feira",
+    "Quarta-feira",
+    "Quinta-feira",
+    "Sexta-feira",
+    "Sábado",    
+]
+
+
+//Funcionalidades
+
+function getSubject(subjectsNumber){
+    //corrige a posição do array da página que começa em '1' não em zero em subjects
+    //'+' é conversão de um número em forma de string
+    const position = +subjectsNumber -1  
+    return subjects[position] //retorna o nome da matéria
+}
 
 function pageLanding (req, res){
     return res.render("index.html") //'render' : usando a renderização do nunjucks
@@ -55,31 +74,49 @@ function pageLanding (req, res){
 
 function pageStudy (req, res){
     const filters = req.query
-    return res.render("study.html", { proffys, filters, subjects }) //{x, y, z ...} passando objetos JS para página
+    return res.render("study.html", { proffys, filters, subjects, weekdays }) //{x, y, z ...} envia objetos JS para página
 }
 
 function pageGiveClasses (req, res){
-    return res.render("give-classes.html")
+    const data = req.query
+    
+    //verifica se 'data' não está vazio.     
+    const isNotEmpty = Object.keys(data).length > 0
+    
+    //se tiver dados adicionar na lista de proffys
+    if (isNotEmpty) {
+       
+        //substitui o numero da matéria pelo nome a ser mostrado na pág
+        data.subject = getSubject(data.subject)
+       
+        //adicionar na lista de proffys (professores), alimentando o banco
+        proffys.push(data)
+        
+        return res.redirect ("/study")
+    } 
+     
+    //senão mostrar a página
+    return res.render("give-classes.html", { subjects, weekdays })
 }
 
+//Servidor
 const express = require('express')
 const server = express()
 
-//configurar o nunjucks
+//configurar o nunjucks (template engine)
 const nunjucks = require('nunjucks')
-nunjucks.configure('src/views', {
+nunjucks.configure('src/views', { //indica o caminho das páginas
     express:server,
     noCache:true,
-}) //indica onde estão as pág html
+}) 
 
-
-
+//Início e configuração do servidor 
 server
-/*configuração dos arquivos estáticos (css, scrips, imagens) */
 .use(express.static("public"))
 
-/*rotas da aplicação*/
+//Rotas da aplicação
 .get("/", pageLanding)
 .get("/study", pageStudy)
 .get("/give-classes", pageGiveClasses )
+//Start do servidor
 .listen(5500)
